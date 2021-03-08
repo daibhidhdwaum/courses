@@ -1,17 +1,17 @@
-import { CsvFileReader } from "./CsvFileReader";
+import { MatchReader } from "./MatchReader";
 import { MatchResult } from "./MatchResult";
 
-const reader = new CsvFileReader("football.csv");
+const reader = new MatchReader("football.csv");
 reader.read();
 
-let manUnitedWins = 0;
+let LiverpoolWins = 0;
 
 for (let match of reader.data) {
-  if (match[1] === "Man United" && match[5] === MatchResult.HomeWin) {
-    manUnitedWins++;
-  } else if (match[2] === "Man United" && match[5] === MatchResult.AwayWin) {
-    manUnitedWins++;
+  if (match[1] === "Liverpool" && match[5] === MatchResult.HomeWin) {
+    LiverpoolWins++;
+  } else if (match[2] === "Liverpool" && match[5] === MatchResult.AwayWin) {
+    LiverpoolWins++;
   }
 }
 
-console.log(`Man United won ${manUnitedWins} games`);
+console.log(`Liverpool won ${LiverpoolWins} games`);
